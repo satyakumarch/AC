@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import BookingForm from "./BookingForm";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +26,24 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-primary">AC Services</h1>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              AC Services
+            </h1>
+          </div>
+
+          {/* Contact Info - Desktop */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex items-center text-gray-600">
+              <Phone className="h-4 w-4 mr-2 text-primary" />
+              <span>24/7 Support: 1-800-AC-HELP</span>
+            </div>
+            <div className="flex items-center text-gray-600">
+              <MapPin className="h-4 w-4 mr-2 text-primary" />
+              <span>Find a Location</span>
+            </div>
           </div>
           
           {/* Desktop Menu */}
@@ -35,7 +52,19 @@ const Navbar = () => {
             <a href="#services" className="text-gray-700 hover:text-primary transition-colors">Services</a>
             <a href="#vendors" className="text-gray-700 hover:text-primary transition-colors">Vendor Portal</a>
             <a href="#contact" className="text-gray-700 hover:text-primary transition-colors">Contact</a>
-            <Button variant="default">Book Now</Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  variant="default"
+                  className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+                >
+                  Book Now
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <BookingForm />
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Mobile Menu Button */}
@@ -51,8 +80,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               <a
                 href="#"
                 className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors"
@@ -77,9 +106,16 @@ const Navbar = () => {
               >
                 Contact
               </a>
-              <div className="px-3 py-2">
-                <Button className="w-full" variant="default">Book Now</Button>
-              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
+                    Book Now
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <BookingForm />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         )}
