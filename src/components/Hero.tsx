@@ -1,12 +1,19 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+    <section className="min-h-screen relative overflow-hidden">
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10"
+        style={{ 
+          backgroundImage: "url('https://images.unsplash.com/photo-1561998338-13ad7883b20f?auto=format&fit=crop&q=80')",
+        }}
+      />
+      
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         <div className="text-center space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

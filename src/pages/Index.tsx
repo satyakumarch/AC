@@ -2,9 +2,11 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import VendorPortal from "@/components/VendorPortal";
 import EnquiryForm from "@/components/EnquiryForm";
 import Footer from "@/components/Footer";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 const Index = () => {
@@ -19,6 +21,8 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <Services />
+      <VendorPortal />
       <EnquiryForm />
       <Footer />
     </div>
