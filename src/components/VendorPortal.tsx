@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Shield, Award, Clock, CreditCard } from "lucide-react";
+import { Shield, Award, Clock, CreditCard, Check } from "lucide-react";
 
 const VendorPortal = () => {
   return (
