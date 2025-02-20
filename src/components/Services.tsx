@@ -44,11 +44,33 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our AC Solutions</h2>
-          <p className="text-xl text-gray-600">Comprehensive AC services for all your needs</p>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block bg-gradient-to-r from-primary/20 to-accent/20 text-primary rounded-full px-4 py-1.5 text-sm font-semibold mb-4"
+          >
+            Our Services
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl font-bold text-gray-900 mb-4"
+          >
+            Comprehensive AC Solutions
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl text-gray-600"
+          >
+            Professional services for all your AC needs
+          </motion.p>
         </div>
 
         {/* AC Types */}
@@ -59,7 +81,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -86,8 +108,22 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600">Professional AC services you can trust</p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl font-bold text-gray-900 mb-4"
+          >
+            Professional Services
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-xl text-gray-600"
+          >
+            Expert solutions you can trust
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -96,10 +132,13 @@ const Services = () => {
               key={service.title}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ y: -5 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-100"
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {service.title}
+              </h3>
               <p className="text-gray-600">{service.description}</p>
             </motion.div>
           ))}
