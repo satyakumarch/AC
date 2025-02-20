@@ -37,7 +37,9 @@ const BookingForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 p-6">
       <div className="space-y-2">
-        <h2 className="text-2xl font-bold text-center">Book AC Service</h2>
+        <h2 className="text-2xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          Book AC Service
+        </h2>
         <p className="text-gray-500 text-center">
           Schedule your AC service appointment
         </p>
@@ -45,9 +47,9 @@ const BookingForm = () => {
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="service">Service Type</Label>
+          <Label htmlFor="service" className="text-sm font-medium">Service Type</Label>
           <Select>
-            <SelectTrigger>
+            <SelectTrigger className="w-full">
               <SelectValue placeholder="Select service" />
             </SelectTrigger>
             <SelectContent>
@@ -60,7 +62,7 @@ const BookingForm = () => {
         </div>
 
         <div className="space-y-2">
-          <Label>Preferred Date</Label>
+          <Label className="text-sm font-medium">Preferred Date</Label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -83,29 +85,46 @@ const BookingForm = () => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
-          <Input id="name" placeholder="Enter your name" />
+          <Label htmlFor="name" className="text-sm font-medium">Full Name</Label>
+          <Input 
+            id="name" 
+            placeholder="Enter your name"
+            className="w-full transition-all focus:ring-2 focus:ring-primary"
+          />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone Number</Label>
-          <Input id="phone" type="tel" placeholder="Enter phone number" />
+          <Label htmlFor="phone" className="text-sm font-medium">Phone Number</Label>
+          <Input 
+            id="phone" 
+            type="tel" 
+            placeholder="Enter phone number"
+            className="w-full transition-all focus:ring-2 focus:ring-primary"
+          />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="address">Address</Label>
-          <Input id="address" placeholder="Enter your address" />
+          <Label htmlFor="address" className="text-sm font-medium">Address</Label>
+          <Input 
+            id="address" 
+            placeholder="Enter your address"
+            className="w-full transition-all focus:ring-2 focus:ring-primary"
+          />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="notes">Additional Notes</Label>
-          <Input id="notes" placeholder="Any specific requirements?" />
+          <Label htmlFor="notes" className="text-sm font-medium">Additional Notes</Label>
+          <Input 
+            id="notes" 
+            placeholder="Any specific requirements?"
+            className="w-full transition-all focus:ring-2 focus:ring-primary"
+          />
         </div>
       </div>
 
       <Button
         type="submit"
-        className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90"
+        className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all"
         disabled={loading}
       >
         {loading ? "Submitting..." : "Book Appointment"}
